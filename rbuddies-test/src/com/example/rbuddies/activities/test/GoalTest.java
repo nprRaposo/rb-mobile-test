@@ -1,6 +1,7 @@
 package com.example.rbuddies.activities.test;
 
 
+import static org.junit.Assert.*;
 import junit.framework.TestCase;
 
 import org.junit.Test;
@@ -9,7 +10,7 @@ import com.example.rbuddies.model.Goal;
 import com.example.rbuddies.model.RBuddiesRegister;
 
 
-public class GoalTest extends TestCase {
+public class GoalTest extends RBuddiesTest {
 	
 	@Test
 	public void testGoalIsAcomplishedWhenTheTrackSatisfyHim()
@@ -27,7 +28,7 @@ public class GoalTest extends TestCase {
 		goalTrack.setTime(19);
 		
 		Goal aGoal = new Goal(goalTrack);
-		assertTrue(aGoal.IsAcomplished(aTrack));
+		assertTrue(aGoal.isAcomplished(aTrack));
 	}
 	
 	@Test
@@ -46,9 +47,8 @@ public class GoalTest extends TestCase {
 		goalTrack.setTime(1);
 		
 		Goal aGoal = new Goal(goalTrack);
-		assertFalse(aGoal.IsAcomplished(aTrack));
+		assertFalse(aGoal.isAcomplished(aTrack));
 	}
-
 }
 
 
