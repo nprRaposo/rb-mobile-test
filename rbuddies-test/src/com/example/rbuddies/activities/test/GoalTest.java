@@ -16,12 +16,37 @@ public class GoalTest extends TestCase {
 	{
 		RBuddiesRegister aTrack = new RBuddiesRegister();
 		
-		aTrack.setAverageVelocity(10);
-		aTrack.setDistance(1);
-		aTrack.setTime(20);
+		aTrack.setAverageVelocity(20);
+		aTrack.setDistance(20);
+		aTrack.setTime(15);
 		
-		Goal aGoal = new Goal();
+		RBuddiesRegister goalTrack = new RBuddiesRegister();
+		
+		goalTrack.setAverageVelocity(11);
+		goalTrack.setDistance(2);
+		goalTrack.setTime(19);
+		
+		Goal aGoal = new Goal(goalTrack);
 		assertTrue(aGoal.IsAcomplished(aTrack));
+	}
+	
+	@Test
+	public void testGoalIsnotAcomplishedWhenTheTrackNotSatisfyHim()
+	{
+		RBuddiesRegister aTrack = new RBuddiesRegister();
+		
+		aTrack.setAverageVelocity(0);
+		aTrack.setDistance(0);
+		aTrack.setTime(10);
+		
+		RBuddiesRegister goalTrack = new RBuddiesRegister();
+		
+		goalTrack.setAverageVelocity(10);
+		goalTrack.setDistance(10);
+		goalTrack.setTime(1);
+		
+		Goal aGoal = new Goal(goalTrack);
+		assertFalse(aGoal.IsAcomplished(aTrack));
 	}
 
 }
