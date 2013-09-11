@@ -15,17 +15,8 @@ public class GoalTest extends RBuddiesTest {
 	@Test
 	public void testGoalIsAcomplishedWhenTheTrackSatisfyHim()
 	{
-		RBuddiesRegister aTrack = new RBuddiesRegister();
-		
-		aTrack.setAverageVelocity(20);
-		aTrack.setDistance(20);
-		aTrack.setTime(15);
-		
-		RBuddiesRegister goalTrack = new RBuddiesRegister();
-		
-		goalTrack.setAverageVelocity(11);
-		goalTrack.setDistance(2);
-		goalTrack.setTime(19);
+		RBuddiesRegister aTrack = this.getRegister(20, 15, 25);
+		RBuddiesRegister goalTrack = this.getRegister(11, 20, 20);
 		
 		Goal aGoal = new Goal(goalTrack);
 		assertTrue(aGoal.isAcomplished(aTrack));
@@ -34,17 +25,8 @@ public class GoalTest extends RBuddiesTest {
 	@Test
 	public void testGoalIsnotAcomplishedWhenTheTrackNotSatisfyHim()
 	{
-		RBuddiesRegister aTrack = new RBuddiesRegister();
-		
-		aTrack.setAverageVelocity(0);
-		aTrack.setDistance(0);
-		aTrack.setTime(10);
-		
-		RBuddiesRegister goalTrack = new RBuddiesRegister();
-		
-		goalTrack.setAverageVelocity(10);
-		goalTrack.setDistance(10);
-		goalTrack.setTime(1);
+		RBuddiesRegister aTrack = this.getRegister(0, 0, 10);
+		RBuddiesRegister goalTrack = this.getRegister(10, 10, 1);
 		
 		Goal aGoal = new Goal(goalTrack);
 		assertFalse(aGoal.isAcomplished(aTrack));
