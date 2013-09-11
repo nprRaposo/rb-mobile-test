@@ -1,0 +1,7 @@
+*.class
+*.dex
+*.prefs
+rbuddies-test/gen/*
+*.project
+*.classpath
+*/bin/*
